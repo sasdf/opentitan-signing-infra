@@ -31,6 +31,24 @@ sh_test(
     deps = [":test_lib"],
 )
 
+sh_test(
+    name = "ef_kwp_test",
+    srcs = ["ef_kwp_test.sh"],
+    args = [
+        "$(rootpath @softhsm2//:gen_dir)/lib/softhsm/libsofthsm2.so",
+    ],
+    data = [
+        "//hsmtool",
+        "//signing/softhsm",
+        "//signing/softhsm:conf",
+        "@softhsm2//:gen_dir",
+    ],
+    env = {
+        "SOFTHSM2_CONF": "$(rootpath //signing/softhsm:conf)",
+    },
+    deps = [":test_lib"],
+)
+
 # Test SLH-DSA key generation for various SHA2/SHAKE parameter sets.
 [
     sh_test(
