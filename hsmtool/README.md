@@ -16,6 +16,7 @@ HSMTool currently supports several different features, including:
 * ECDSA key generation, importing & exporting, and signing & verification.
 * MLDSA key generation, importing & exporting, and signing & verification.
 * RSA key generation, importing & exporting, signing & verification, and encryption & decryption.
+* Elementary File (EF) export & import wrapped with hardware AES Key Wrap with Padding (KWP).
 * SPHINCS+ (SPX) key generation, importing & exporting, and signing & verification.
 * Commands for listing tokens, and for writing / updating / destroying objects in the HSM session.
 
@@ -24,3 +25,4 @@ You can find more information about using `hsmtool` from its command-line help m
 ```sh
 bazelisk run //hsmtool:hsmtool -- --help
 ```
+

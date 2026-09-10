@@ -14,6 +14,7 @@ use crate::util::attribute::AttrData;
 
 mod aes;
 mod ecdsa;
+mod ef;
 mod exec;
 mod kdf;
 mod mldsa;
@@ -46,6 +47,9 @@ pub enum Commands {
     Aes(aes::Aes),
     #[command(subcommand)]
     Ecdsa(ecdsa::Ecdsa),
+    /// Manage Elementary Files (CKO_DATA).
+    #[command(subcommand)]
+    Ef(ef::Ef),
     Exec(exec::Exec),
     #[command(subcommand)]
     Kdf(kdf::Kdf),
@@ -74,6 +78,7 @@ impl Dispatch for Commands {
         match self {
             Commands::Aes(x) => x.run(context, hsm, session),
             Commands::Ecdsa(x) => x.run(context, hsm, session),
+            Commands::Ef(x) => x.run(context, hsm, session),
             Commands::Exec(x) => x.run(context, hsm, session),
             Commands::Kdf(x) => x.run(context, hsm, session),
             Commands::Mldsa(x) => x.run(context, hsm, session),
@@ -92,6 +97,7 @@ impl Dispatch for Commands {
         match self {
             Commands::Aes(x) => x.leaf(),
             Commands::Ecdsa(x) => x.leaf(),
+            Commands::Ef(x) => x.leaf(),
             Commands::Exec(x) => x.leaf(),
             Commands::Kdf(x) => x.leaf(),
             Commands::Mldsa(x) => x.leaf(),
