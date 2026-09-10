@@ -7,6 +7,7 @@ pub mod ef;
 pub mod escape;
 pub mod helper;
 pub mod key;
+pub mod kwp;
 pub mod secret;
 pub mod signing;
 pub mod wrap;
