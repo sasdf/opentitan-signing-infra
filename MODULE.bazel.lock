@@ -317,6 +317,33 @@
         ]
       }
     },
+    "//third_party/wycheproof:extensions.bzl%wycheproof": {
+      "general": {
+        "bzlTransitiveDigest": "YcFonw6302393Y9NyLsWNQD5rivw2lZkj9yiCxtBFg0=",
+        "usagesDigest": "8KcMgVbjG/Ua7j4Cgfznp67b130PPRNHzCnpYMcPVQo=",
+        "recordedFileInputs": {},
+        "recordedDirentsInputs": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "wycheproof": {
+            "repoRuleId": "@@bazel_tools//tools/build_defs/repo:http.bzl%http_archive",
+            "attributes": {
+              "build_file": "@@//third_party/wycheproof:BUILD.wycheproof_common.bazel",
+              "sha256": "a257775fafc432e6226710a3beb7cc78728518586d673be22acad1b562815e7d",
+              "strip_prefix": "wycheproof-1ce52eedab8d4201ff7fddb63fd65b84ff6f12b4",
+              "url": "https://github.com/lowRISC/wycheproof/archive/1ce52eedab8d4201ff7fddb63fd65b84ff6f12b4.tar.gz"
+            }
+          }
+        },
+        "recordedRepoMappingEntries": [
+          [
+            "",
+            "bazel_tools",
+            "bazel_tools"
+          ]
+        ]
+      }
+    },
     "@@aspect_bazel_lib+//lib:extensions.bzl%toolchains": {
       "general": {
         "bzlTransitiveDigest": "/eG4ezrk5ms110RBTeAeqM23K05vyvIugNVKn7h5+28=",

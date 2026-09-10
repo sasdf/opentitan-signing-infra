@@ -148,6 +148,10 @@ use_repo(crate, "rust_opentitan_signing_crates")
 serde_annotate = use_extension("//third_party/rust:extensions.bzl", "serde_annotate")
 use_repo(serde_annotate, "lowrisc_serde_annotate")
 
+# Wycheproof test vectors for cryptographic verification
+wycheproof = use_extension("//third_party/wycheproof:extensions.bzl", "wycheproof", dev_dependency = True)
+use_repo(wycheproof, "wycheproof")
+
 # Python toolchain, used for Python scripting (for PKCSCS#11 attribute conversion) and
 # for the license_check lint.
 # FIXME: The upstream license check lint rule uses outdated `pip` dependencies that are
