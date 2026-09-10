@@ -173,6 +173,7 @@ rust_library(
         "src/util/key/rsa.rs",
         "src/util/key/slhdsa.rs",
         "src/util/kwp.rs",
+        "src/util/kwp_wycheproof_test.rs",
         "src/util/mod.rs",
         "src/util/secret.rs",
         "src/util/signing.rs",
@@ -199,6 +200,7 @@ rust_library(
         "//hsmtool/acorn",
         "//hsmtool/sphincsplus",
         "@lowrisc_serde_annotate//serde_annotate",
+        "@rules_rust//rust/runfiles",
         "@rust_opentitan_signing_crates//:anyhow",
         "@rust_opentitan_signing_crates//:base64ct",
         "@rust_opentitan_signing_crates//:clap",
@@ -214,6 +216,7 @@ rust_library(
         "@rust_opentitan_signing_crates//:log",
         "@rust_opentitan_signing_crates//:ml-dsa",
         "@rust_opentitan_signing_crates//:once_cell",
+        "@rust_opentitan_signing_crates//:openssl",
         "@rust_opentitan_signing_crates//:p256",
         "@rust_opentitan_signing_crates//:pem-rfc7468",
         "@rust_opentitan_signing_crates//:pkcs8",
@@ -257,7 +260,9 @@ rust_test(
     crate = ":hsmlib",
     data = glob([
         "testdata/**",
-    ]),
+    ]) + [
+        "@wycheproof//testvectors_v1:all",
+    ],
     edition = "2024",
     env = {
         "TESTDATA": "$(rootpath testdata/key/test1_pkcs1.der)",
